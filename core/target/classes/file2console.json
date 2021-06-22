@@ -1,0 +1,32 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 5
+      },
+      "errorLimit": {
+        "record": 0,
+        "percentage": 0.02
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "filereader",
+          "parameter": {
+            "path": "/root",
+            "fileName": "test"
+          }
+        },
+        "writer": {
+          "name": "txtfilewriter",
+          "parameter": {
+            "path": "/root",
+            "fileName": "test",
+            "writeMode": "append"
+          }
+        }
+      }
+    ]
+  }
+}
