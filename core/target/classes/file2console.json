@@ -9,24 +9,22 @@
         "percentage": 0.02
       }
     },
-    "content": [
-      {
-        "reader": {
-          "name": "filereader",
-          "parameter": {
-            "path": "/root",
-            "fileName": "test"
-          }
-        },
-        "writer": {
-          "name": "txtfilewriter",
-          "parameter": {
-            "path": "/root",
-            "fileName": "test",
-            "writeMode": "append"
-          }
+    "content": {
+      "reader": {
+        "name": "filereader",
+        "parameter": {
+          "path": "/root/test.txt",
+          "fileName": "test"
+        }
+      },
+      "writer": {
+        "name": "txtfilewriter",
+        "parameter": {
+          "path": "/root",
+          "fileName": "test",
+          "writeMode": "append"
         }
       }
-    ]
+    }
   }
 }

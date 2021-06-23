@@ -3,18 +3,17 @@ package com.beiwu;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.beiwu.exception.CusException;
+import com.beiwu.job.JobContainer;
+import com.beiwu.utils.Configuration;
+import org.apache.commons.cli.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @author zhoubing
@@ -49,7 +48,11 @@ public class Engine {
         LOG.debug("got config path : {}", path);
 
 
-        Map configMap = readConfig(path);
+        Configuration configuration = Configuration.from(new File(path));
+
+        AbstractContainer container = new JobContainer(configuration);
+
+        container.start();
 
 
 
